@@ -18,20 +18,10 @@ public class GameController : MonoBehaviour
     public Text GameOverText;
 
     private bool gameOver;
-    private bool Restart;
+    private bool Restart { get; set; }
     private int score;
 
-    /*public GameController(Text scoreText)
-    {
-        this.scoreText = scoreText;
-    }
-
-    public GameController(bool restart)
-    {
-        Restart = restart;
-    }*/
-
-    void Start()
+        void Start()
     {
         gameOver = false;
         Restart = false;
@@ -44,7 +34,8 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if 
+            (Input.GetKeyDown(KeyCode.R))
 
         {
             SceneManager.LoadScene("SpaceShooter");
