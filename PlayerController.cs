@@ -20,19 +20,27 @@ public class PlayerController : MonoBehaviour
     private float nextFire;
 
     private Rigidbody rb;
+    private AudioSource audioSource;
 
-     void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-       if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            if (Input.GetKey("escape"))
+                Application.Quit();
+        } // Escape key for game build
+
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-
+            GetComponent<AudioSource>();
+            audioSource.Play();
         }
     }
 
